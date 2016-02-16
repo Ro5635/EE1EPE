@@ -1,0 +1,42 @@
+body{
+		width: 100%;
+		margin: 0 auto;
+}
+.PrimaryNav {
+	display: none;
+}
+.MobileOnly {
+	display: inline-block;
+}
+#MobileHeader {
+	width: 100%;
+	display: block;
+	height: 20%;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+#HamburgerContainer {
+	width:18%;
+	float:left;
+	display: block;
+	padding-left: 2%;
+	cursor: pointer;
+}
+#MobileTitle {
+	float: left;
+	width: 60%;
+	margin: 0 auto;
+	display: inline-block;
+	font-size: 2em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #52608E;
+	text-align: center;
+}
+.MobileNav {
+	display: inline-block;
+	left: -285px;  /* start off behind the left edge of the display (A simple slider) */
+  	height: 100%;
+  	position: fixed;
+  	width: 285px;
+}

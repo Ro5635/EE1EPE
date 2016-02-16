@@ -1,0 +1,94 @@
+body{
+	background-color: #f6f6f6;
+		width: 90%;
+		margin: 0 auto;
+}
+.Page {
+	display: block;
+}
+#PageHeader{
+	width: 100%;
+	background-color: white;
+	display: inline-block;
+	box-shadow: 0px 5px 5px #888888;
+	margin-bottom: 0px;
+}
+.PrimaryNav{
+	display: inline;
+	padding-left: 5%;
+	padding-right: 5%;
+	list-style: none;
+}
+.MobileOnly {
+	display: none;
+}
+.PrimaryNav ul {
+	list-style: none;
+	width: 100%;
+}
+.PrimaryNav li {
+	float: left;
+	width: 30%;
+}
+.PrimaryNav a {
+	text-decoration: none; 
+	color: white;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #52608E;
+}
+.PrimaryNav span {
+	width: 100%;
+	display: block;
+}
+.active {
+	/*Something needed here to demo to the user what pager they are currently on*/
+
+}
+.hover {
+  	text-decoration: underline;
+}
+
+
+#PagePhotoFrame{
+	width: 100%;
+	height: 20%;
+	display: inline-block;
+	float: left;
+
+}
+#PageMainImage{
+	width: 100%;
+	height: 100%;
+}
+#MainPageContent{
+	width: 100%;
+	display: inline-block;
+	margin-top: 0px;
+	padding-top: 0px;
+	box-shadow: 0px 5px 5px #888888;
+	background-color: white;
+}
+h1 {
+	font-size: 1.5em;
+	text-align: center;
+	font-weight: bold;
+
+}
+#PageTitleContainer{
+	display: inline-block;
+	width: 100%;
+}
+#PageTitle{
+	float: left;
+	margin: 0 auto;
+	width: 40%;
+}
+footer {
+	font-size: 0.8em;
+	font-weight: italic;
+	text-decoration: none;
+	color: #808080;
+}
