@@ -71,6 +71,10 @@ body{
 	box-shadow: 0px 5px 5px #888888;
 	background-color: white;
 }
+#ArticleContentContainer{
+	padding: 5%;
+	display: inline-block;
+}
 h1 {
 	font-size: 1.5em;
 	text-align: center;
