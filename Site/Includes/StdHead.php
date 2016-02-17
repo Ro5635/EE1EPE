@@ -36,10 +36,22 @@ require_once('../Includes/S3SignedURLGen.php');
 		</nav>
 		<span class="MobileOnly" id="MobileHeader"><span id="HamburgerContainer" class="icon-menu"><img src=" <?php echo cloudFrontCannedPolicyURLSign('https://cdn.ro5635.co.uk/MediaSiteStructure/HamburgerMenuIcon.png') ?> "></span><span id="MobileTitle"><?php echo $pageTitle ?></span></span>
 		<nav class="MobileNav MobileOnly">
-		 <ul>
+			<ul>
 				<li><a href="index.php"><span class="NavLinkButton active">Home</span></a></li>
 				<li><a href="index.php"><span class="NavLinkButton">About</span></a></li>
 				<li><a href="index.php"><span class="NavLinkButton">Learn</span></a></li>
 			</ul>
 		</nav>
+
+		<?php
+		if(isset($InsertGoogleSpamCatch)){
+			if($InsertGoogleSpamCatch == 1){
+				echo '<script type="text/javascript">';
+				echo 'var onloadCallback = function() {';	
+				echo 'grecaptcha.render(\'html_element\', {	\'sitekey\' : \'6LeIjBgTAAAAAGkBCyXq7rB43rNRlKw4btkhXTaF\'	});';
+				echo '};</script>';
+			}
+		}
+		?>
+
 	</header>

@@ -22,6 +22,9 @@ $FormCreator = new FormBuilder;
 
 	echo $FormCreator->EndForm();
 
+	//Google Recaptcha:
+	echo '<div id="html_element"></div><br><input type="submit" value="Submit"></form>';
+
 
 ?>
 	

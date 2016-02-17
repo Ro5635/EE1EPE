@@ -1,7 +1,7 @@
 <?php
 $pageTitle = 'Home';
 $pageDescription = 'Submit mesages to the Cube';
-
+$InsertGoogleSpamCatch = 1;
 
 require_once('../Includes/StdHead.php');
 

@@ -42,4 +42,19 @@ require_once('../../Includes/S3SignedURLGen.php');
 				<li><a href="index.php"><span class="NavLinkButton">Data</span></a></li>
 			</ul>
 		</nav>
+
+<?php
+	if(isset($InsertGoogleSpamCatch)){
+		if($InsertGoogleSpamCatch == 1){
+			echo '<script type="text/javascript">';
+			echo 'var onloadCallback = function() {';	
+			echo 'grecaptcha.render(\'html_element\', {	\'sitekey\' : \'6LeIjBgTAAAAAGkBCyXq7rB43rNRlKw4btkhXTaF\'	});';
+			echo '};</script>';
+
+		
+
+		}
+	}
+?>
+
 	</header>

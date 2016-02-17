@@ -77,7 +77,6 @@ $key_pair_id = 'APKAI3O4WVSJRO2O3K4Q';
     //$path = 'https://cdn.ro5635.co.uk/';
     if($expires) {
         $result .= $path . $separator . "Expires=" . $expires . "&Signature=" . $signature . "&Key-Pair-Id=" . $key_pair_id;
-        error_log("APPLE happen");
     } 
     // not using a canned policy, include the policy itself in the stream name
     else {
