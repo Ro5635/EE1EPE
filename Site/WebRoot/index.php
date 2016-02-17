@@ -18,6 +18,7 @@ include('../Includes/StdImage.php');
 						<span id="ArticleContentContainer">
 						<?php echo '<img src="' .  cloudFrontCannedPolicyURLSign('https://cdn.ro5635.co.uk/Cone.jpg') . '">'; 
 						
+						require('../Includes/SendMessage.Inc.php');
 
 
 						?>

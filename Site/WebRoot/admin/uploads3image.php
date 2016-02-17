@@ -1,4 +1,5 @@
 <?php
+require_once('../../Includes/CheckLogIn.php');
 $pageTitle = 'Upload Image';
 $pageDescription = 'Submit mesages to the Cube';
 
