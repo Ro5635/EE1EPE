@@ -7,9 +7,9 @@ require('FormBuilder.php');
 
 $FormCreator = new FormBuilder;
 
-	echo '<span id=LogInFormContainer>';
+	echo '<span id=SendMessageFormContainer>';
 
-	echo $FormCreator->StartForm($PageCreationInstruction = array("Methord" => "post","Action" =>  1, "id" => "SendMessage"));
+	echo $FormCreator->StartForm($PageCreationInstruction = array("Methord" => "post","Action" =>  1, "id" => "SendMessageForm"));
 
 	$InputsRequired = array( array( "InputLabel" => "Name: " , "OptInputHTMLSeperator" => "<br>"  ,"Options" => array( array('type', 'text') ,array('value', $_POST["Name"]), array("maxlength", 20), array("name", "Name")) ));
 	echo $FormCreator->CreateStandardInput($InputsRequired);

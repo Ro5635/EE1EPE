@@ -6,6 +6,5 @@
 
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 	<script src="Magic/Scripts/Standard.js"></script>
-	<script src="/Magic/Scripts/AdminAJAX.js"></script>
 </body>
 </html>
