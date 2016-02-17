@@ -73,6 +73,7 @@ body{
 }
 #ArticleContentContainer{
 	padding: 5%;
+	width: 80%;
 	display: inline-block;
 }
 h1 {
@@ -95,4 +96,21 @@ footer {
 	font-weight: italic;
 	text-decoration: none;
 	color: #808080;
+}
+
+
+
+#PageHeadImage {
+	margin: 0 auto;
+
+}
+
+/*Send Message Form*/
+#SendMessageFormContainer{
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+}
+#UserMessage {
+	width: 20%;
 }
