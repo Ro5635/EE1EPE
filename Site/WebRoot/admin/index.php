@@ -2,7 +2,7 @@
 $pageTitle = 'Admin Home';
 $pageDescription = 'Submit mesages to the Cube';
 
-
+require_once('../../Includes/CheckLogIn.php');
 require_once('../../Includes/StdAdminHead.php');
 
 echo '<span Class="Page"><section>';
