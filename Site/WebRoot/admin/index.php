@@ -24,7 +24,7 @@ include('../../Includes/StdImage.php');
 
 <?php
 echo '	</section></span>';
-include('../Includes/StdFooter.php');
+include('../../Includes/StdFooter.php');
 ?>
 
 
