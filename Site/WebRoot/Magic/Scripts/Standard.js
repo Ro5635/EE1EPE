@@ -40,6 +40,24 @@ var main = function(){
  //   });
 
 
+    $('#SendMessageForm').submit( function(){
+        var FormData = $(this).serialize();
+
+
+        $.post('AJAXPublic.php' ,FormData ,ProccessData);
+
+        //Now re-set the form
+        $('#SendMessageFormContainer').slideUp('slow');
+        return false;
+
+
+    });
+
+    function ProccessData(){
+        
+    }
+
+
 }
 
 $(document).ready(main()); 

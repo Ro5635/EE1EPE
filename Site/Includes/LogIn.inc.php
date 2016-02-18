@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 	require('../../Includes/LogInFunctions.php');
-	require('../../EE1EPEDBC.php');
+	require_once('../../EE1EPEDBC.php');
 	
 	//Pull the login data from the post request.
 	$RawUserName = $_POST["RAWUserName"];

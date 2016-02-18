@@ -1,6 +1,5 @@
 <?php
 require_once('../../Includes/S3SignedURLGen.php');
-
 ?>
 
 <!doctype html>

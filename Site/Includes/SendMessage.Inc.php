@@ -9,23 +9,33 @@ $FormCreator = new FormBuilder;
 
 	echo '<span id=SendMessageFormContainer>';
 
-	echo $FormCreator->StartForm($PageCreationInstruction = array("Methord" => "post","Action" =>  1, "id" => "SendMessageForm"));
+	echo $FormCreator->StartForm($PageCreationInstruction = array("Methord" => "post","Action" =>  1, "id" => "SendMessageForm", "class" => "UserForm"));
 
-	$InputsRequired = array( array( "InputLabel" => "Name: " , "OptInputHTMLSeperator" => "<br>"  ,"Options" => array( array('type', 'text') ,array('value', $_POST["Name"]), array("maxlength", 20), array("name", "Name")) ));
+	echo '<span id="NameTextBoxLabel">Name:</span>';
+
+	echo '<span id="NameTextBoxContainer">';
+
+	$InputsRequired = array( array( "OptInputHTMLSeperator" => "<br>"  ,"Options" => array( array('type', 'text') ,array('value', $_POST["Name"]), array("maxlength", 20), array("name", "Name") , array("id", "NameTextBox")) ));
 	echo $FormCreator->CreateStandardInput($InputsRequired);
 
-	echo '<textarea name="UserMessage" id="UserMessage"></textarea>';
+	echo '</span><br><br>Message:';
 
-	echo '<br>';
+	if(isset($_POST['UserMessage'])){ 
+		$TextArreaContents = $_POST['UserMessage'];
+	} else {
+		$TextArreaContents = "";
+	}
 
-	echo '<button id="submitMessage" type="submit">Submit Message</button>';
+	echo '<textarea name="UserMessage" id="UserMessage">' . $TextArreaContents . '</textarea>';
 
-	echo $FormCreator->EndForm();
+	echo '<br><br><span id="GoogleAntiSpanStyleBuffer"></span>';
 
 	//Google Recaptcha:
-	echo '<div id="html_element"></div><br><input type="submit" value="Submit"></form>';
+	echo '<div id="html_element"></div>';
 
+	echo '<br><br><span id="submitMessageFormButtonContainer"><button id="submitMessage" type="submit">Submit Message</button></span>';
 
+	echo $FormCreator->EndForm();
 ?>
 	
 	

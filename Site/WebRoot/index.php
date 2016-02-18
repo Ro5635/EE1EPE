@@ -16,7 +16,7 @@ include('../Includes/StdImage.php');
 		<article id="MainPageContent">
 						<span id="PageTitleContainer"><span id="PageTitle"><h1>Main Page</h1></span></span>
 						<span id="ArticleContentContainer">
-						<?php echo '<span id="PageHeadImage"> <img src="' .  cloudFrontCannedPolicyURLSign('https://cdn.ro5635.co.uk/Cone.jpg') . '"></span>'; 
+						<?php //echo '<span id="PageHeadImage"> <img src="' .  cloudFrontCannedPolicyURLSign('https://cdn.ro5635.co.uk/Cone.jpg') . '"></span>'; 
 						
 						require('../Includes/SendMessage.Inc.php');
 
