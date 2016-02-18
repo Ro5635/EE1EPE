@@ -1,5 +1,6 @@
 <?php
 require_once('../../Includes/S3SignedURLGen.php');
+require_once('../../EE1EPEDBC.php');
 ?>
 
 <!doctype html>
@@ -29,7 +30,7 @@ require_once('../../Includes/S3SignedURLGen.php');
 		<nav class="PrimaryNav">
 			<ul>
 				<li><a href="index.php"><span class="NavLinkButton active">Home</span></a></li>
-				<li><a href="index.php"><span class="NavLinkButton">Authorise</span></a></li>
+				<li><a href="authorise.php"><span class="NavLinkButton">Authorise</span></a></li>
 				<li><a href="index.php"><span class="NavLinkButton">Data</span></a></li>
 			</ul>
 		</nav>
@@ -37,7 +38,7 @@ require_once('../../Includes/S3SignedURLGen.php');
 		<nav class="MobileNav MobileOnly">
 		 <ul>
 				<li><a href="index.php"><span class="NavLinkButton active">Home</span></a></li>
-				<li><a href="index.php"><span class="NavLinkButton">Authorise</span></a></li>
+				<li><a href="authorise.php"><span class="NavLinkButton">Authorise</span></a></li>
 				<li><a href="index.php"><span class="NavLinkButton">Data</span></a></li>
 			</ul>
 		</nav>
