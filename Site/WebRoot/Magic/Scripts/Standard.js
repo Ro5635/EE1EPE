@@ -54,7 +54,11 @@ var main = function(){
     });
 
     function ProccessData(){
-        
+        //Prep the form for the next user:
+        $('#SendMessageFormContainer').slideDown('slow');
+        $('#NameTextBox').value = "";
+        $('#UserMessage').value = "";
+        return false;
     }
 
 

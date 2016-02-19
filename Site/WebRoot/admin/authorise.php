@@ -17,17 +17,37 @@ include('../../Includes/StdImage.php');
 						<span id="PageTitleContainer"><span id="PageTitle"><h1>Authorise Messages</h1></span></span>
 						<span id="ArticleContentContainer">
 
-						<span id="MessagesTable">
+						<div id="MessagesTable">
 							<?php
 							//Create the table of messages for authorisation:
-								$stmt = $dbc->prepare('SELECT MessageText, GivenName  FROM Messages WHERE Authorised = 0 ORDER BY MessageID DESC');
+								$stmt = $dbc->prepare('SELECT MessageID , MessageText, GivenName  FROM Messages WHERE Authorised = 0 ORDER BY MessageID DESC');
   								$stmt->execute();
   								$DataBaseMessagesData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  								echo '<pre>';
-  								var_dump($DataBaseMessagesData);
-  								echo '</pre>';
+  								// echo '<pre>';
+  								// var_dump($DataBaseMessagesData);
+  								// echo '</pre>';
+
+  								echo '<div class="MessagesAuthTable">';
+
+  								echo '<span class="TableLine">';
+  									  	echo '<span class="GivenNameColumn"><h3>Name</h3></span>';
+  										echo '<span class="MessageTextColumn"><h3>Message</h3></span>';
+  								echo '</span>';
+
+
+  								foreach ($DataBaseMessagesData as $key => $DataBaseLine) {
+  										echo '<span class="TableLine">';
+  									  	echo '<span class="GivenNameColumn">' . $DataBaseLine['GivenName'] . '</span>';
+  										echo '<span class="MessageTextColumn">' . $DataBaseLine['MessageText'] . '</span>';
+  										echo '<span class="AuthoriseButton ButtonsBlock" ID="' . $DataBaseLine['MessageID'] . '" >Authorise</span>';
+  										echo '<span class="DeleteButton ButtonsBlock" ID="' . $DataBaseLine['MessageID'] . '">Delete</span>';
+  										echo '</span>';
+  								}
+
+  								echo '</div>';
+
 							?>
-						</span>
+						</div>
 
 					</span>
 		</article>

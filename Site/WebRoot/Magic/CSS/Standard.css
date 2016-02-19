@@ -147,3 +147,49 @@ footer {
 	float: right;
 	display: inline-block;
 }
+
+/*The formatting for the authirise messages table could really do with being spun off into the admin only css*/
+#MessagesTable {
+	width: 100%;
+	display: inline-block;
+}
+.MessagesAuthTable {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+}
+.GivenNameColumn {
+	width: 25%;
+	float: left;
+	display: inline-block;
+}
+.MessageTextColumn {
+	width: 55%;
+	display: inline-block;
+	float: left;
+}
+.AuthoriseButton {
+	width: 10%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+.DeleteButton {
+	width: 8%;
+	display: inline-block;
+	float: right;
+	text-align: center;
+	padding-left 1%; 
+}
+.ButtonsBlock{
+  text-align: center;
+  background-color: green;
+  cursor: pointer;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; 
+}
+.TableLine {
+	/*padding-top: 4%;*/
+	display: block;
+}
