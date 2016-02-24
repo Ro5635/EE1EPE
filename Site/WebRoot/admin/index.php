@@ -17,14 +17,17 @@ include('../../Includes/StdImage.php');
 						<span id="PageTitleContainer"><span id="PageTitle"><h1>Admin Page</h1></span></span>
 						<span id="ArticleContentContainer">
 
-						<p><a href="uploads3image.php">Upload Image to S3 CDN.</a></p>
+						<p><a href="uploads3image.php">Upload Image to S3 CDN.</a>
+						<span class="regNewDevice"><?php 	require_once('RegisterNewDevice.inc.php');	?>
+						</span>
+						</p>
 					</span>
 		</article>
 
 
 <?php
 echo '	</section></span>';
-include('../../Includes/StdFooter.php');
+include('../../Includes/StdAdminFooter.php');
 ?>
 
 

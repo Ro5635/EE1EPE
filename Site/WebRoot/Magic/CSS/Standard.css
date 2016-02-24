@@ -193,3 +193,6 @@ footer {
 	/*padding-top: 4%;*/
 	display: block;
 }
+.FormSecondStage {
+	display: none;
+}
