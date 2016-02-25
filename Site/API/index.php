@@ -58,12 +58,17 @@ function getUndisplayedMessages($dbc, $DeviceToken){
 }
 
 function getDeviceIDForDeviceTocken($dbc, $DeviceTocken){
-
+	$stmt = $dbc->prepare('SELECT DeviceID FROM Devices WHERE  DeviceTocken = :SubmittedDeviceTocken');
+	$stmt->execute(array(':SubmittedDeviceTocken'=>$DeviceToken )) ;
+	$Data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $Data;
 }
 
 
 function awkMessageDisplay($dbc, $DeviceID, $MessageID){
  	//This function allows the user to ackowledge that they have displayed a message on the cube and that it can be removed from the pennding requests.
+	$stmt = $dbc->prepare('UPDATE Messages SET Displayed = 1 AND ShownOnDeviceID = :DisplayedDeviceID WHERE MessageID = :MessageID');
+	$stmt->execute(array(':DisplayedDeviceID'=>$DeviceID , ':MessageID' => $MessageID) );
 
  }
 
@@ -100,6 +105,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		}
 		break;
 
+		case '3':
+		$DevieID = getDeviceIDForDeviceTocken($dbc, $_POST['dt']);
+		awkMessageDisplay($dbc, $DevieID, $_POST['MessageID']);
+		die;
+		break;
+
 		default:
 			# code...
 		break;
@@ -122,6 +133,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 			error_log("API DeviceTocken Validation Failed");
 			die;
 		}
+		break;
+
+		case '3':
+		$DevieID = getDeviceIDForDeviceTocken($dbc, $_GET['dt']);
+		awkMessageDisplay($dbc, $DevieID, $_GET['MessageID']);
+		die;
 		break;
 
 		default:
