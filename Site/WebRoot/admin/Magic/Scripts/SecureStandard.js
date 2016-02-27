@@ -8,7 +8,7 @@ var main = function(){
     });
 
     function RegisterNewDeviceReturnFunction($DeviceTocken){
-        //Prep the form for the next user:
+        //Display the generated device token:
         $('#DeviceHashValue').text($DeviceTocken);
         console.log($DeviceTocken);
         $('.FormPartOne').slideUp('slow');
@@ -16,7 +16,43 @@ var main = function(){
         return false;
     }
 
+    $('.ButtonsBlock').click(function() {
+        $ID = $(this).attr('id');
 
+
+
+        if( $(this).hasClass("AuthoriseButton") ){
+                //Autharise the message:
+                var data = 'task=8&mid=' + $ID;
+                $.ajax({
+                    url: "authorise.php",
+                    type: "POST",
+                    data: data,
+                    cache: false,
+                    success: function(reternedData) {
+
+                    }
+                });
+                //Should do this in the call back, but time pressure...
+                $(this).parent().slideUp('slow');
+            } else if ( $(this).hasClass("DeleteButton") ){
+                //Delete the message:
+                var data = 'task=9&mid=' + $ID;
+                $.ajax({
+                    url: "authorise.php",
+                    type: "POST",
+                    data: data,
+                    cache: false,
+                    success: function(reternedData) {
+                    }
+                       
+                    });
+                 //Should do this in the call back, but time pressure...
+                $(this).parent().slideUp('slow');
+                
+            }
+        });
 }
+
 
 $(document).ready(main()); 

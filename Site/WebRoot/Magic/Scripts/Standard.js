@@ -55,9 +55,10 @@ var main = function(){
 
     function ProccessData(){
         //Prep the form for the next user:
+        $('#NameTextBox').val('');
+        $('#UserMessage').val('');
+        grecaptcha.reset();
         $('#SendMessageFormContainer').slideDown('slow');
-        $('#NameTextBox').value = "";
-        $('#UserMessage').value = "";
         return false;
     }
 

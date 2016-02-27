@@ -26,7 +26,7 @@ function testConnection($dbc, $DeviceToken){
 	$stmt = $dbc->prepare('SELECT SimpleName, DeviceID, JoinDate FROM Devices WHERE DeviceTocken = :SubmittedDeviceToken');
 	$stmt->execute(array(':SubmittedDeviceToken'=>$DeviceToken ) );
 	$Data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	var_dump($Data);
+	echo json_encode($Data);
 	return $Data;
 }
 
@@ -53,24 +53,25 @@ function getUndisplayedMessages($dbc, $DeviceToken){
 	$stmt = $dbc->prepare('SELECT MessageID, MessageText, GivenName, TimeAdded FROM Messages WHERE Authorised = 1 AND Displayed = 0 ORDER BY MessageID ASC LIMIT 50');
 	$stmt->execute(array(':SubmittedDeviceToken'=>$DeviceToken ) );
 	$Data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	var_dump($Data);
+	echo json_encode($Data);
 	return $Data ;
 }
 
-function getDeviceIDForDeviceTocken($dbc, $DeviceTocken){
+function getDeviceIDForDeviceTocken($dbc, $DeviceToken){
 	$stmt = $dbc->prepare('SELECT DeviceID FROM Devices WHERE  DeviceTocken = :SubmittedDeviceTocken');
 	$stmt->execute(array(':SubmittedDeviceTocken'=>$DeviceToken )) ;
 	$Data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	return $Data;
+	return $Data[0]['DeviceID'];
 }
 
 
 function awkMessageDisplay($dbc, $DeviceID, $MessageID){
  	//This function allows the user to ackowledge that they have displayed a message on the cube and that it can be removed from the pennding requests.
-	$stmt = $dbc->prepare('UPDATE Messages SET Displayed = 1 AND ShownOnDeviceID = :DisplayedDeviceID WHERE MessageID = :MessageID');
+	$stmt = $dbc->prepare('UPDATE Messages SET Displayed = 1 , ShownOnDeviceID = :DisplayedDeviceID WHERE MessageID = :MessageID');
 	$stmt->execute(array(':DisplayedDeviceID'=>$DeviceID , ':MessageID' => $MessageID) );
 
  }
+
 
 ///////End of functions
 
@@ -106,9 +107,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		break;
 
 		case '3':
-		$DevieID = getDeviceIDForDeviceTocken($dbc, $_POST['dt']);
-		awkMessageDisplay($dbc, $DevieID, $_POST['MessageID']);
+		$DeviceID = getDeviceIDForDeviceTocken($dbc, $_POST['dt']);
+		awkMessageDisplay($dbc, $DeviceID, $_POST['mid']);
 		die;
+		break;
+
+		case '4':
+		//Authorise the Message
+		
 		break;
 
 		default:
@@ -136,8 +142,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		break;
 
 		case '3':
-		$DevieID = getDeviceIDForDeviceTocken($dbc, $_GET['dt']);
-		awkMessageDisplay($dbc, $DevieID, $_GET['MessageID']);
+		$DeviceID = getDeviceIDForDeviceTocken($dbc, $_GET['dt']);
+		awkMessageDisplay($dbc, $DeviceID, $_GET['mid']);
 		die;
 		break;
 

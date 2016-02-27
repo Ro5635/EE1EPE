@@ -1,13 +1,48 @@
 <?php
+
+
 $pageTitle = 'Authorise Messages';
 $pageDescription = 'Submit mesages to the Cube';
 
 require_once('../../Includes/CheckLogIn.php');
+//Deal with the POST requests from the site, see 
+
+//Include the databaase connection:
+require_once('../..//EE1EPEDBC.php');
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+
+  if($_POST['task'] == 8){
+    //Autharise the message:
+    $stmt = $dbc->prepare('UPDATE Messages SET Authorised = 1 WHERE MessageID = :SubmittedMessagesID');
+    $stmt->execute(array(':SubmittedMessagesID'=> $_POST['mid'] ) );
+  
+  } else if($_POST['task'] == 9){
+    //This 'deletes' the messages:
+    $stmt = $dbc->prepare('UPDATE Messages SET Authorised = 2 WHERE MessageID = :SubmittedMessagesID');
+    $stmt->execute(array(':SubmittedMessagesID'=> $_POST['mid'] ) );
+
+  }else{
+    echo 'error';
+  }
+
+  die;
+}
+
+
+
+
+
+
+
 require_once('../../Includes/StdAdminHead.php');
 
 echo '<span Class="Page"><section>';
 
 include('../../Includes/StdImage.php');
+
+
+
 
 
 
@@ -46,8 +81,14 @@ include('../../Includes/StdImage.php');
 
   								echo '</div>';
 
+
 							?>
 						</div>
+
+
+            <div class="MessagesAuthCompleteTable">
+
+            </div>
 
 					</span>
 		</article>
@@ -55,7 +96,7 @@ include('../../Includes/StdImage.php');
 
 <?php
 echo '	</section></span>';
-include('../../Includes/StdFooter.php');
+include('../../Includes/StdAdminFooter.php');
 ?>
 
 
