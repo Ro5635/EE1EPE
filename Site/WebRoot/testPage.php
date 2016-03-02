@@ -1,8 +1,8 @@
 <?php
 $pageTitle = 'Admin Home';
+$InsertGoogleSpamCatch = 1;
 $pageDescription = 'Submit mesages to the Cube';
 
-//Check the login details:
 require_once('../../Includes/CheckLogIn.php');
 require_once('../../Includes/StdAdminHead.php');
 
@@ -15,17 +15,27 @@ include('../../Includes/StdImage.php');
 ?>
 
 		<article id="MainPageContent">
-						<span id="PageTitleContainer"><span id="PageTitle"><h1>Admin Page</h1></span></span>
+						<span id="PageTitleContainer"><span id="PageTitle"><h1>Admin TEST Page</h1></span></span>
 						<span id="ArticleContentContainer">
 
-						
+						<p><a href="uploads3image.php">Upload Image to S3 CDN.</a></p>
+					
+
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+
+
+
+
 					</span>
 		</article>
 
 
 <?php
 echo '	</section></span>';
-include('../../Includes/StdAdminFooter.php');
+include('../../Includes/StdFooter.php');
 ?>
 
 

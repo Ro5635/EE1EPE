@@ -44,7 +44,7 @@ body{
 	display: block;
 }
 .active {
-	/*Something needed here to demo to the user what page they are currently on*/
+	/*Something needed here to demo to the user what pager they are currently on*/
 
 }
 .hover {
@@ -89,7 +89,7 @@ h1 {
 #PageTitle{
 	float: left;
 	margin: 0 auto;
-	width: 40%;
+	width: 60%;
 }
 footer {
 	font-size: 0.8em;
@@ -174,12 +174,26 @@ footer {
 	float: left;
 	text-align: center;
 }
+.TableLine {
+	padding-top: 2px;
+	min-height: 10%;
+}
+.LineSpacer {
+	width: 100%;
+	display: inline-block;
+	height: 10px;
+}
 .DeleteButton {
 	width: 8%;
 	display: inline-block;
 	float: right;
+	text-align: center; 
+}
+.DeleteButtonPendingDisplay {
+	width: 18%;
+	display: inline-block;
+	float: right;
 	text-align: center;
-	padding-left 1%; 
 }
 .ButtonsBlock{
   text-align: center;
@@ -190,9 +204,31 @@ footer {
   -webkit-border-radius: 5px; 
 }
 .TableLine {
-	/*padding-top: 4%;*/
+	margin-top: 5%;
 	display: block;
 }
 .FormSecondStage {
 	display: none;
+}
+.CenterThis {
+	text-align: center;
+	display: inline-block;
+	margin: 0 auto;
+	width: 100%;
+}
+.DeStyleLink a {
+	list-style: none;
+	text-decoration: none;
+	color: white;
+}
+.ButtonsBlockStyle2{
+  text-align: center;
+  background-color: green;
+  cursor: pointer;
+  /*padding-left: 8px;*/
+  /*padding-right: 8px;*/
+  padding: 8px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; 
 }

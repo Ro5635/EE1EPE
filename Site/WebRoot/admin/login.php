@@ -16,9 +16,10 @@ include('../../Includes/StdImage.php');
             <span id="PageTitleContainer"><span id="PageTitle"><h1>Admin Login Page</h1></span></span>
             <span id="ArticleContentContainer">
 
+          	<span class="CenterThis">
             <p>Please login to the admin pannel:</p><br>
             <?php include('../../Includes/LogIn.inc.php'); ?>
-          </span>
+          </span></span>
     </article>
 
 

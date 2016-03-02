@@ -35,7 +35,7 @@ var main = function(){
                 });
                 //Should do this in the call back, but time pressure...
                 $(this).parent().slideUp('slow');
-            } else if ( $(this).hasClass("DeleteButton") ){
+            } else if ( $(this).hasClass("DeleteButton") || $(this).hasClass("DeleteButtonPendingDisplay") ){
                 //Delete the message:
                 var data = 'task=9&mid=' + $ID;
                 $.ajax({

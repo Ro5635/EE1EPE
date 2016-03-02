@@ -4,6 +4,7 @@
 $pageTitle = 'Authorise Messages';
 $pageDescription = 'Submit mesages to the Cube';
 
+//Check the login details:
 require_once('../../Includes/CheckLogIn.php');
 //Deal with the POST requests from the site, see 
 
@@ -49,7 +50,7 @@ include('../../Includes/StdImage.php');
 ?>
 
 		<article id="MainPageContent">
-						<span id="PageTitleContainer"><span id="PageTitle"><h1>Authorise Messages</h1></span></span>
+						<span id="PageTitleContainer"><span id="PageTitle"><h1>Messages Pending Authorisation:</h1></span></span>
 						<span id="ArticleContentContainer">
 
 						<div id="MessagesTable">
@@ -69,14 +70,22 @@ include('../../Includes/StdImage.php');
   										echo '<span class="MessageTextColumn"><h3>Message</h3></span>';
   								echo '</span>';
 
+                  //JQuery Slide issue workaround:
+                    echo '<span class="TableLine">';
+                        echo '<span class="GivenNameColumn"></span>';
+                      echo '<span class="MessageTextColumn"></span>';
+                      echo '<span class="AuthoriseButton ButtonsBlock" ID="" ></span>';
+                      echo '<span class="DeleteButton ButtonsBlock" ID=""></span>';
+                      echo '</span><br><span class="LineSpacer"></span>';
+
 
   								foreach ($DataBaseMessagesData as $key => $DataBaseLine) {
   										echo '<span class="TableLine">';
   									  	echo '<span class="GivenNameColumn">' . $DataBaseLine['GivenName'] . '</span>';
   										echo '<span class="MessageTextColumn">' . $DataBaseLine['MessageText'] . '</span>';
-  										echo '<span class="AuthoriseButton ButtonsBlock" ID="' . $DataBaseLine['MessageID'] . '" >Authorise</span>';
+  										echo '<span class="AuthoriseButton ButtonsBlock" ID="' . $DataBaseLine['MessageID'] . '" >Send</span>';
   										echo '<span class="DeleteButton ButtonsBlock" ID="' . $DataBaseLine['MessageID'] . '">Delete</span>';
-  										echo '</span>';
+  										echo '</span><br><span class="LineSpacer"></span>';
   								}
 
   								echo '</div>';
@@ -84,11 +93,6 @@ include('../../Includes/StdImage.php');
 
 							?>
 						</div>
-
-
-            <div class="MessagesAuthCompleteTable">
-
-            </div>
 
 					</span>
 		</article>

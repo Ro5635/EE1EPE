@@ -1,6 +1,6 @@
             <span class="FormPartOne">
             	<form method='post' id="registerNewDevice">
-            		<p>Please provide a name for the device that you wish to register:</p>
+            		<p>If you wish to register a new device for use please provide a name for the device that you wish to register:</p>
             		Device Name:
             		<br>
             		<input type='text' name='simpleName'/>

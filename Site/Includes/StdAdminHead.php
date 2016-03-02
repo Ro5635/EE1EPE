@@ -31,7 +31,7 @@ require_once('../../EE1EPEDBC.php');
 			<ul>
 				<li><a href="index.php"><span class="NavLinkButton active">Home</span></a></li>
 				<li><a href="authorise.php"><span class="NavLinkButton">Authorise</span></a></li>
-				<li><a href="index.php"><span class="NavLinkButton">Data</span></a></li>
+				<li><a href="control.php"><span class="NavLinkButton">Control</span></a></li>
 			</ul>
 		</nav>
 		<span class="MobileOnly" id="MobileHeader"><span id="HamburgerContainer" class="icon-menu"><img src=" <?php echo cloudFrontCannedPolicyURLSign('https://cdn.ro5635.co.uk/MediaSiteStructure/HamburgerMenuIcon.png') ?> "></span><span id="MobileTitle"><?php echo $pageTitle ?></span></span>
@@ -39,7 +39,7 @@ require_once('../../EE1EPEDBC.php');
 		 <ul>
 				<li><a href="index.php"><span class="NavLinkButton active">Home</span></a></li>
 				<li><a href="authorise.php"><span class="NavLinkButton">Authorise</span></a></li>
-				<li><a href="index.php"><span class="NavLinkButton">Data</span></a></li>
+				<li><a href="control.php"><span class="NavLinkButton">Control</span></a></li>
 			</ul>
 		</nav>
 

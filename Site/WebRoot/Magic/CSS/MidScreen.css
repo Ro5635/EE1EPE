@@ -2,3 +2,18 @@ body{
 		width: 95%;
 		margin: 0 auto;
 }
+
+
+.AuthoriseButton {
+	width: 15%;
+	display: inline-block;
+	float: right;
+	text-align: center;
+}
+.DeleteButton {
+	width: 15%;
+	display: inline-block;
+	float: right;
+	text-align: center;
+	margin-top: 2%; 
+}
