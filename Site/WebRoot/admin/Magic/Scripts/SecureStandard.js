@@ -1,4 +1,5 @@
 var main = function(){
+
     $('#registerNewDevice').submit( function(){
         var FormData = $(this).serialize();
         $.post('AJAXSecure.php' ,FormData ,RegisterNewDeviceReturnFunction);
@@ -16,14 +17,27 @@ var main = function(){
         return false;
     }
 
-    $('.ButtonsBlock').click(function() {
-        $ID = $(this).attr('id');
+    function AJAXEvent(){
+        //Autharise the message:
+        var data = 't=10';
+        $.ajax({
+            url: "authorise.php",
+            type: "POST",
+            data: data,
+            cache: false,
+            success: function(reternedData) {
+                $('#AJAXAuthTable').html('');
+                $('#AJAXAuthTable').html(reternedData);
+            }
+        });
 
+    }
 
-
-        if( $(this).hasClass("AuthoriseButton") ){
+        $('#AJAXAuthTable').on( "click", '.ButtonsBlock', function() {
+            $ID = $(this).attr('id');
+            if( $(this).hasClass("AuthoriseButton") ){
                 //Autharise the message:
-                var data = 'task=8&mid=' + $ID;
+                var data = 't=8&mid=' + $ID;
                 $.ajax({
                     url: "authorise.php",
                     type: "POST",
@@ -37,7 +51,7 @@ var main = function(){
                 $(this).parent().slideUp('slow');
             } else if ( $(this).hasClass("DeleteButton") || $(this).hasClass("DeleteButtonPendingDisplay") ){
                 //Delete the message:
-                var data = 'task=9&mid=' + $ID;
+                var data = 't=9&mid=' + $ID;
                 $.ajax({
                     url: "authorise.php",
                     type: "POST",
@@ -52,6 +66,12 @@ var main = function(){
                 
             }
         });
+
+        
+
+
+        window.setInterval(AJAXEvent, 5000);
+
 }
 
 

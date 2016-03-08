@@ -18,7 +18,8 @@ $FormCreator = new FormBuilder;
 	$InputsRequired = array( array( "OptInputHTMLSeperator" => "<br>"  ,"Options" => array( array('type', 'text') ,array('value', $_POST["Name"]), array("maxlength", 20), array("name", "Name") , array("id", "NameTextBox")) ));
 	echo $FormCreator->CreateStandardInput($InputsRequired);
 
-	echo '</span><br><br>Message:';
+
+	echo '</span>Email: <br><input type="text" name="emailAddressInput" id="emailAddressInput"/><br><br>Message:';
 
 	if(isset($_POST['UserMessage'])){ 
 		$TextArreaContents = $_POST['UserMessage'];

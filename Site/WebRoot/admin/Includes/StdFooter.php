@@ -4,7 +4,7 @@
 
 
 
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<script src="Magic/Scripts/Standard.js"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+
+JPD 2016 Course work, Group 5:
+
+	Model a automated factory to find the most efficient probability for the input lines for the two different types of product.
+
+	INPUT LINES:
+
+		- Cheese Line
+		- Blue Cheese line
+		- Soup Line
+
+			User controls probability of cheese lines receiving product per step. 

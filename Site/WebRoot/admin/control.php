@@ -11,7 +11,40 @@ require_once('../../Includes/CheckLogIn.php');
 //Include the databaase connection:
 require_once('../..//EE1EPEDBC.php');
 
-//The XHRs from here will use authorise.php.
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+
+  switch ($_POST['t']) {
+
+    case 9:
+      //This 'deletes' the messages:
+      $stmt = $dbc->prepare('UPDATE Messages SET Authorised = 2 WHERE MessageID = :SubmittedMessagesID');
+      $stmt->execute(array(':SubmittedMessagesID'=> $_POST['mid'] ) );
+    break;
+
+    case 10:
+      //AJAX Serve table content as a whole:
+      include('Includes/authTableInclude.php');
+    break;
+
+    default:
+      echo 'error';
+    break;
+  }
+  die;
+} else if ($_SERVER['REQUEST_METHOD'] == "GET"){
+    switch ($_GET['t']) {
+      case 11:
+         //AJAX Serve table content as a whole:
+        include('Includes/authTableInclude.php');
+        die;
+      break;
+      
+      default:
+        
+      break;
+    }
+}
 
 require_once('../../Includes/StdAdminHead.php');
 
@@ -34,47 +67,11 @@ include('../../Includes/StdImage.php');
     <p><span class="ButtonsBlockStyle2 DeStyleLink"><a href="uploads3image.php">Upload Image for display on cube.</a></span></p>
 
 
-    <div id="MessagesTable">
-     <?php
+   <?php
+   //Include the autharised messages table:
+   include('awatingDisplayTableInclude.php');
 
-     echo '<p>Messages Waiting to be displayed on cube:</p>';
-
-		 //Create the table of messages that are waiting to be displayed:
-
-     $stmt = $dbc->prepare('SELECT MessageID , MessageText, GivenName  FROM Messages WHERE Authorised = 1 ORDER BY MessageID ASC');
-     $stmt->execute();
-     $DataBaseMessagesData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-     echo '<div class="MessagesAuthTable">';
-
-     echo '<span class="TableLine">';
-     echo '<span class="GivenNameColumn"><h3>Name</h3></span>';
-     echo '<span class="MessageTextColumn"><h3>Message</h3></span>';
-     echo '</span>';
-
-
-     //JQuery Slide issue workaround:
-     echo '<span class="TableLine">';
-     echo '<span class="GivenNameColumn"></span>';
-     echo '<span class="MessageTextColumn"></span>';
-     echo '<span class="AuthoriseButton ButtonsBlock" ID="" ></span>';
-     echo '<span class="DeleteButton ButtonsBlock" ID=""></span>';
-     echo '</span><br><span class="LineSpacer"></span>';
-
-
-     foreach ($DataBaseMessagesData as $key => $DataBaseLine) {
-      echo '<span class="TableLine">';
-      echo '<span class="GivenNameColumn">' . $DataBaseLine['GivenName'] . '</span>';
-      echo '<span class="MessageTextColumn">' . $DataBaseLine['MessageText'] . '</span>';
-      echo '<span class="DeleteButtonPendingDisplay ButtonsBlock" ID="' . $DataBaseLine['MessageID'] . '">Delete</span>';
-      echo '</span><br><span class="LineSpacer"></span>';
-    }
-
-    echo '</div>';
-
-
-    ?>
-  </div>
+   ?>
 
   <br><br>
   <span class="regNewDevice"><?php  require_once('RegisterNewDevice.inc.php');  ?>

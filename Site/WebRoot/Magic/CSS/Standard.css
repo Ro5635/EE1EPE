@@ -124,6 +124,11 @@ footer {
 	width: 70%;
 	display: inline-block;
 }
+#emailAddressInput {
+	width: 70%;
+	display: inline-block;
+	margin: 0 auto;
+}
 #NameTextBox {
 	width: 70%;
 	float: left;

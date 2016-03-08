@@ -117,41 +117,59 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		
 		break;
 
+		 case 9:
+      		//This 'deletes' the messages:
+		 	require_once('../WebRoot/Includes/CheckLogIn.php');
+      		$stmt = $dbc->prepare('UPDATE Messages SET Authorised = 2 WHERE MessageID = :SubmittedMessagesID');
+      		$stmt->execute(array(':SubmittedMessagesID'=> $_POST['mid'] ) );
+      		die;
+    	break;
+
+    	case 10:
+      		//AJAX Serve table content as a whole:
+    		require_once('../WebRoot/Includes/CheckLogIn.php');
+      		include('../WebRoot/admin/Includes/authTableInclude.php');
+      		die;
+    	break;
+
+
 		default:
 			# code...
 		break;
 	}
 
-} elseif ($_SERVER['REQUEST_METHOD'] == "GET") {
-	//This will mainly be used for testing purposes.
-	switch ($_GET['t']) {
-		case '1':
-			//Test Connection by returnuing the device ID.
-		testConnection($dbc, $_GET['dt']);
-		die;
-		break;
+ }
+//	GET Redacted:
+// elseif ($_SERVER['REQUEST_METHOD'] == "GET") {
+// 	//This will mainly be used for testing purposes.
+// 	switch ($_GET['t']) {
+// 		case '1':
+// 			//Test Connection by returnuing the device ID.
+// 		testConnection($dbc, $_GET['dt']);
+// 		die;
+// 		break;
 		
-		case '2':
-		//Get all of the undisplayed Authenticated messages:
-		if(checkValidation($dbc,$_GET['dt'])){
-			getUndisplayedMessages($dbc, $_GET['dt']);
-		}else{
-			error_log("API DeviceTocken Validation Failed");
-			die;
-		}
-		break;
+// 		case '2':
+// 		//Get all of the undisplayed Authenticated messages:
+// 		if(checkValidation($dbc,$_GET['dt'])){
+// 			getUndisplayedMessages($dbc, $_GET['dt']);
+// 		}else{
+// 			error_log("API DeviceTocken Validation Failed");
+// 			die;
+// 		}
+// 		break;
 
-		case '3':
-		$DeviceID = getDeviceIDForDeviceTocken($dbc, $_GET['dt']);
-		awkMessageDisplay($dbc, $DeviceID, $_GET['mid']);
-		die;
-		break;
+// 		case '3':
+// 		$DeviceID = getDeviceIDForDeviceTocken($dbc, $_GET['dt']);
+// 		awkMessageDisplay($dbc, $DeviceID, $_GET['mid']);
+// 		die;
+// 		break;
 
-		default:
-			# code...
-		break;
-	}
-}
+// 		default:
+// 			# code...
+// 		break;
+// 	}
+// }
 
 
 
