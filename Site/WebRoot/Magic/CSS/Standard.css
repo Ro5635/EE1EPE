@@ -97,19 +97,15 @@ footer {
 	text-decoration: none;
 	color: #808080;
 }
-
-
-
 #PageHeadImage {
 	margin: 0 auto;
 
 }
-
 /*Send Message Form*/
 #SendMessageFormContainer{
 	display: block;
 	margin: 0 auto;
-	width: 50%;
+	width: 85%;
 }
 .UserForm {
 	margin: 0 auto;
@@ -124,13 +120,21 @@ footer {
 	width: 70%;
 	display: inline-block;
 }
-#emailAddressInput {
+#EmailText {
+	width: 30%;
+	display: inline-block;
+	text-align: center;
+}
+#EmailInputBound {
 	width: 70%;
 	display: inline-block;
 	margin: 0 auto;
 }
+#emailAddressInput{
+	width: 100%
+}
 #NameTextBox {
-	width: 70%;
+	width: 100%;
 	float: left;
 }
 #UserMessage {
@@ -236,4 +240,28 @@ footer {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px; 
+}
+#AnButtonsPanel {
+	width: 100%
+	display: inline-block;
+}
+.AnButton {
+	width: 10%;
+	margin-left: 11%;
+	margin-right: 11%;
+	height: 50px;
+	line-height: 50px;
+	margin-top: 3%;
+	display: inline-block;
+	background-color: green;
+	text-align: center;
+	vertical-align: middle;
+	background-color: green;
+  	cursor: pointer;
+    border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+  	color: white; 
+  	font-weight: bold;
+
 }

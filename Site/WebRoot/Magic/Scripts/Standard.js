@@ -57,6 +57,7 @@ var main = function(){
         //Prep the form for the next user:
         $('#NameTextBox').val('');
         $('#UserMessage').val('');
+        $('#emailAddressInput').val('');
         grecaptcha.reset();
         $('#SendMessageFormContainer').slideDown('slow');
         return false;

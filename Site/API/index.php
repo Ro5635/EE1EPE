@@ -8,6 +8,12 @@
 //Include the databaase connection:
 require_once('/var/www/html/ee1epeproject/EE1EPEDBC.php');
 
+//The bellow ensures that the user is logged into the system, this means unutharised users cannot damage the system.
+function checkLoginDetails(){
+	//PHP! :(
+	require_once('/var/www/html/ee1epeproject/Includes/CheckLogIn.php');
+}
+
 //The bellow function allows the user to create a new device for communication with teh server:
 //Returns the devices new unique (Problems will happen here on scale but with only really one or two devices being used here im happy with the comprimise to dev time) tocken
 function RegisternewDevice($dbc, $NewDeviceName){
@@ -80,13 +86,15 @@ function awkMessageDisplay($dbc, $DeviceID, $MessageID){
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-	if($_POST['TASK'] == 1){
-		//Create an Account:
-		//CreateAccount($dbc, $_POST['userName'], $_POST['password']);
-	} elseif ($_POST['TASK'] == 2) {
-		//Register an new device:
-		RegisternewDevice($dbc, $_POST['simpleName']);
+	if(isset($_POST['TASK'])){
+		if($_POST['TASK'] == 1){
+			//Create an Account:
+			//CreateAccount($dbc, $_POST['userName'], $_POST['password']);
+		} elseif ($_POST['TASK'] == 2) {
+			//Register an new device:
+			RegisternewDevice($dbc, $_POST['simpleName']);
 
+		}
 	}
 
 	switch ($_POST['t']) {
@@ -117,9 +125,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		
 		break;
 
-		 case 9:
+		case 8:
+      		//Autharise the message:
+			checkLoginDetails();
+      		$stmt = $dbc->prepare('UPDATE Messages SET Authorised = 1 WHERE MessageID = :SubmittedMessagesID');
+      		$stmt->execute(array(':SubmittedMessagesID'=> $_POST['mid'] ) );
+    	break;
+
+		case 9:
       		//This 'deletes' the messages:
-		 	require_once('../WebRoot/Includes/CheckLogIn.php');
+		 	checkLoginDetails();
       		$stmt = $dbc->prepare('UPDATE Messages SET Authorised = 2 WHERE MessageID = :SubmittedMessagesID');
       		$stmt->execute(array(':SubmittedMessagesID'=> $_POST['mid'] ) );
       		die;
@@ -127,8 +142,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     	case 10:
       		//AJAX Serve table content as a whole:
-    		require_once('../WebRoot/Includes/CheckLogIn.php');
-      		include('../WebRoot/admin/Includes/authTableInclude.php');
+    		checkLoginDetails();
+      		include('authTableInclude.php');
+      		die;
+    	break;
+
+    	case 11:
+    		//AJAX Serve table content as a whole:
+    		checkLoginDetails();
+      		include('awatingDisplayTableInclude.php');
       		die;
     	break;
 

@@ -1,6 +1,6 @@
 <?php
 
-
+$InsertAuthoriseAJAX = 1;
 $pageTitle = 'Authorise Messages';
 $pageDescription = 'Submit mesages to the Cube';
 
@@ -77,7 +77,7 @@ include('../../Includes/StdImage.php');
               <span id="AJAXAuthTable">
               <?php 
               //Include the table:
-              include('Includes/authTableInclude.php');
+              include('../../API/authTableInclude.php');
               ?>
             </span>
 

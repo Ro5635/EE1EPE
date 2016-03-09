@@ -19,7 +19,7 @@ $FormCreator = new FormBuilder;
 	echo $FormCreator->CreateStandardInput($InputsRequired);
 
 
-	echo '</span>Email: <br><input type="text" name="emailAddressInput" id="emailAddressInput"/><br><br>Message:';
+	echo '</span><span id="EmailText">Email: </span><span id="EmailInputBound"><br><input type="text" name="emailAddressInput" id="emailAddressInput"/></span><br><br>Message:';
 
 	if(isset($_POST['UserMessage'])){ 
 		$TextArreaContents = $_POST['UserMessage'];

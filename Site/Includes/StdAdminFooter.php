@@ -13,6 +13,20 @@ if(isset($InsertGoogleSpamCatch)){
 		echo '<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"async defer></script>';
 	}
 }
+
+if(isset($InsertAuthoriseAJAX)){
+	if ($InsertAuthoriseAJAX == 1) {
+		echo '<script src="Magic/Scripts/authoriseAJAX.js"async defer></script>';
+	}
+}
+
+if(isset($InsertControlAJAX)){
+	if ($InsertControlAJAX == 1) {
+		echo '<script src="Magic/Scripts/controlAJAX.js"async defer></script>';
+	}
+}
+
+
 ?>
 </body>
 </html>

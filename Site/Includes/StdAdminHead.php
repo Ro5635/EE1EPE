@@ -14,10 +14,10 @@ require_once('../../EE1EPEDBC.php');
 	<meta name="author" content="Aston EE1EPE Team 2">
 
 	<link rel="stylesheet" href="../Magic/CSS/Standard.css">
-	<link rel='stylesheet' media='screen and (min-width: 900px)' href='../Magic/CSS/LargeScreen.css' />
-	<link rel='stylesheet' media='screen and (min-width: 701px) and (max-width: 899px)' href='../Magic/CSS/Standard.css' />
-	<link rel='stylesheet' media='screen and (min-width: 500px) and (max-width: 700px)' href='../Magic/CSS/MidScreen.css' />
-	<link rel='stylesheet' media='screen and (max-width: 700px)' href='../Magic/CSS/Mobile.css' />
+	<link rel='stylesheet' media='screen and (min-width: 1500px)' href='../Magic/CSS/LargeScreen.css' />
+	<link rel='stylesheet' media='screen and (min-width: 1000px) and (max-width: 1499px)' href='../Magic/CSS/Standard.css' />
+	<link rel='stylesheet' media='screen and (min-width: 500px) and (max-width: 999px)' href='../Magic/CSS/MidScreen.css' />
+	<link rel='stylesheet' media='screen and (max-width: 499px)' href='../Magic/CSS/Mobile.css' />
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
